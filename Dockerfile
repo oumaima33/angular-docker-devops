@@ -11,7 +11,7 @@ COPY angular-17-client/package*.json ./
 RUN npm install
 
 # Copy the rest of the application code
-COPY ../angular-17-client/ ./
+COPY . ./
 
 
 # Install the Angular CLI
