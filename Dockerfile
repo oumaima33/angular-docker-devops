@@ -5,7 +5,7 @@ FROM node:20
 WORKDIR /usr/src/app
 
 # Copy package.json and package-lock.json from the correct directory
-COPY angular-17-client/package*.json ./
+COPY package*.json ./
 
 # Install all the dependencies
 RUN npm install
