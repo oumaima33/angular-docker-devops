@@ -57,7 +57,7 @@ pipeline {
             steps {
                 script {
                    
-                     bat "docker run -d -p 8081:80 test-back-conc:test"
+                     bat "docker run -d -p 8081:8081 spring-app"
                 }
             }
         }
