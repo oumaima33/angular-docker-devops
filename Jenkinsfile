@@ -65,7 +65,7 @@ pipeline {
          stage('Deploy front end') {
             steps {
                 script {
-                    bat "docker run -d -p 4201:80 awwin/new-angular:${env.BUILD_NUMBER}"
+                    bat "docker run -d -p 4201:80 mkharij/awwin:${env.BUILD_NUMBER}"
                    
                 }
             }
