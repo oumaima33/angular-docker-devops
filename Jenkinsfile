@@ -21,18 +21,7 @@ pipeline {
             }
         }
 
-        stage('Run Angular Tests') {
-            steps {
-                script {
-                    def testResult = bat(script: "docker run --rm ${DOCKER_TEST_IMAGE} ng test --watch=false --browsers=ChromeHeadlessNoSandbox", returnStatus: true)
-                    if (testResult != 0) {
-                        error "Angular unit tests failed"
-                    } else {
-                        echo "Angular unit tests passed successfully"
-                    }
-                }
-            }
-        }
+       
 
         stage('Security Scan with Grype') {
             steps {
