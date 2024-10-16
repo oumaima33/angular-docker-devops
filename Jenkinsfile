@@ -16,7 +16,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    bat "docker build -t awwin/new-angular:${env.BUILD_NUMBER} ."
+                    bat "docker build -t mkharij/awwin:${env.BUILD_NUMBER} ."
                 }
             }
         }
@@ -47,7 +47,7 @@ pipeline {
         stage('Push to DockerHub') {
             steps {
                 script {
-                    bat "docker push awwin/new-angular:${env.BUILD_NUMBER}"
+                    bat "docker push mkharij/awwin:${env.BUILD_NUMBER}"
                  
                 }
             }
