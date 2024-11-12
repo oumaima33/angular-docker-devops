@@ -16,7 +16,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    bat "docker build -t mkharij/awwin:${env.BUILD_NUMBER} ."
+                    bat "docker build -t oum0033/awwin:${env.BUILD_NUMBER} ."
                 }
             }
         }
@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     // Run the Grype security scan on the built Docker image
-                    bat "docker run --rm -v /var/run/docker.sock:/var/run/docker.sock anchore/grype mkharij/awwin:${env.BUILD_NUMBER}"
+                    bat "docker run --rm -v /var/run/docker.sock:/var/run/docker.sock anchore/grype oum0033/awwin:${env.BUILD_NUMBER}"
                 }
             }
         }
@@ -47,7 +47,7 @@ pipeline {
         stage('Push to DockerHub') {
             steps {
                 script {
-                    bat "docker push mkharij/awwin:${env.BUILD_NUMBER}"
+                    bat "docker push oum0033/awwin:${env.BUILD_NUMBER}"
                  
                 }
             }
@@ -65,7 +65,7 @@ pipeline {
          stage('Deploy front end') {
             steps {
                 script {
-                    bat "docker run -d -p 4201:80 mkharij/awwin:${env.BUILD_NUMBER}"
+                    bat "docker run -d -p 4201:80 oum0033/awwin:${env.BUILD_NUMBER}"
                    
                 }
             }
