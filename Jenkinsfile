@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('docker-hub-op')
+        DOCKERHUB_CREDENTIALS = credentials('docker')
         DOCKER_TEST_IMAGE = "awwin/new-angular:test"
     }
     
